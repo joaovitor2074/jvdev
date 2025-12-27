@@ -1,32 +1,57 @@
 import React from "react";
+import { motion } from "framer-motion";
 import Button from "../ui/Button";
 
-//img
+// styles
+import "../../styles/layouts/header.css";
+
+// img
 import logotrans from "../../assets/images/jvdev-fundotransparente.png";
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between p-4 bg-gray-800 text-white">
-        <div>
-            <img src={logotrans} alt="" className="w-24 ml-14" />
-        </div>
+    <motion.header
+      className="flex items-center justify-between p-4 bg-gray-800 text-white header"
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
+      {/* LOGO */}
+      <motion.div
+        whileHover={{ scale: 1.1, rotate: -2 }}
+        transition={{ type: "spring", stiffness: 300 }}
+      >
+        <img src={logotrans} alt="Logo" className="logo" />
+      </motion.div>
 
-        <div>
-            <nav>
-                <ul className="flex space-x-6">
-                    <li><a href="#home" className="hover:text-gray-400">Home</a></li>
-                    <li><a href="#about" className="hover:text-gray-400">About</a></li>
-                    <li><a href="#services" className="hover:text-gray-400">Services</a></li>
-                    <li><a href="#contact" className="hover:text-gray-400">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+      {/* NAV */}
+      <nav className="nav">
+        <ul className="flex space-x-6">
+          {["Home", "About Me", "Projects", "Contact"].map((item, index) => (
+            <motion.li
+              key={item}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 + index * 0.1 }}
+            >
+              <a href={`/${item.toLowerCase().replace(" ", "")}`} className="link">
+                {item}
+              </a>
+            </motion.li>
+          ))}
+        </ul>
+      </nav>
 
-        <div>
-            <Button onClick={() => alert('Button Clicked!')}>
-                Divirta-se
-            </Button>
-        </div>
-    </header>
+      {/* BUTTON */}
+      <motion.div
+        className="div_btn"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <Button className="btn" onClick={() => alert("🔥 Bem-vindo ao meu portfolio!")}>
+          Divirta-se
+        </Button>
+      </motion.div>
+    </motion.header>
   );
 }
