@@ -1,0 +1,49 @@
+/* Fundo principal do Hero */
+.hero-bg {
+  background: radial-gradient(
+      circle at top left,
+      rgba(59, 130, 246, 0.15),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(37, 99, 235, 0.15),
+      transparent 40%
+    ),
+    linear-gradient(180deg, #050b18, #020617);
+}
+
+/* Overlay escuro pra dar profundidade */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(2, 6, 23, 0.4),
+    rgba(2, 6, 23, 0.85)
+  );
+  z-index: 1;
+}
+
+/* Glow mais forte */
+.glow {
+  text-shadow:
+    0 0 10px rgba(59, 130, 246, 0.9),
+    0 0 25px rgba(59, 130, 246, 0.7),
+    0 0 40px rgba(59, 130, 246, 0.4);
+}
+
+/* Floating mais suave */
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+  100% { transform: translateY(0); }
+}
+
+#home{
+    min-height: 80vh;
+}
