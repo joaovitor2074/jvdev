@@ -1,0 +1,16 @@
+/* CONTAINER DO TSPARTICLES */
+#about-particles {
+  position: absolute !important;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* CANVAS INTERNO (O PROBLEMA REAL) */
+#about-particles canvas {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 1 !important;
+}
