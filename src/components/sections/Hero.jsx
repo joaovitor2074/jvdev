@@ -31,7 +31,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="hero-bg relative w-full flex items-center text-white overflow-hidden"
+      className="relative w-full flex items-center text-white overflow-hidden"
     >
       
 
@@ -46,7 +46,7 @@ export default function Hero() {
           variants={container}
           initial="hidden"
           animate="show"
-          className="space-y-6"
+          className="space-y-6 "
         >
           <motion.h1
             variants={item}
@@ -104,36 +104,46 @@ export default function Hero() {
         </motion.div>
 
         {/* IMAGEM */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.85, rotate: -2 }}
-          animate={{
-            opacity: 1,
-            scale: 1,
-            rotate: 0,
-            y: [0, -12, 0],
-          }}
-          transition={{
-            opacity: { duration: 0.8 },
-            scale: { duration: 0.8 },
-            rotate: { duration: 0.8 },
-            y: {
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            },
-          }}
-          whileHover={{
-            scale: 1.05,
-            rotate: 1,
-          }}
-          className={`doido flex justify-center md:justify-end `}
-        >
-          <img
-            src={banner}
-            alt="Banner JVDev"
-            className="max-w-xs md:max-w-md drop-shadow-2xl z-10"
-          />
-        </motion.div>
+<motion.div
+  initial={{ opacity: 0, scale: 0.9 }}
+  animate={{
+    opacity: 1,
+    scale: 1,
+    y: [0, -14, 0],
+  }}
+  transition={{
+    opacity: { duration: 0.8 },
+    scale: { duration: 0.8 },
+    y: {
+      duration: 5,
+      repeat: Infinity,
+      ease: "easeInOut",
+    },
+  }}
+  whileHover={{
+    scale: 1.05,
+  }}
+  className="relative flex justify-center md:justify-end"
+>
+  {/* Halo / Glow atrás */}
+  <div
+    className="absolute inset-0 rounded-full blur-3xl opacity-40"
+    style={{
+      background:
+        "radial-gradient(circle at center, #3b82f6 0%, transparent 70%)",
+    }}
+  />
+
+  {/* Container glass */}
+  <div className="relative z-10 rounded-2xl p-2 bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl">
+    <img
+      src={banner}
+      alt="Banner JVDev"
+      className="max-w-xs md:max-w-md rounded-xl"
+    />
+  </div>
+</motion.div>
+
 
       </div>
     </section>

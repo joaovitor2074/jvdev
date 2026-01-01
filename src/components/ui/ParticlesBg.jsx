@@ -95,7 +95,7 @@ export default function ParticlesBg() {
 
     return (
         <Particles
-            className="absolute inset-0 z-1"
+            className="absolute inset-0 z-0"
             options={options}
         />
     )
