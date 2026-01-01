@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Button from "../ui/Button";
-import Scene from "../Skills3D/Scene";
 
+import ModelTest from "./ModelTest";
 
 import "../../index.css";
 import "../../styles/sections/AboutSection.css";
@@ -76,10 +76,8 @@ export default function AboutSection() {
           </motion.div>
           {/* SKILLS 3D */}
           <motion.div variants={itemRight} className="w-full">
-            <h2 className="text-4xl font-bold text-center mb-10">
-              Skills <span className="text-blue-500">3D</span>
-            </h2>
-            <Scene />
+            
+            <ModelTest />
           </motion.div>
         </div>
       </motion.div>

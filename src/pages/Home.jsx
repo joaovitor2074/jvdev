@@ -5,6 +5,7 @@ import Projects from "../components/sections/Projects";
 import Contact from "../components/sections/Contact";
 import Skills from "../components/sections/Skills";
 import ParticlesBg from "../components/ui/ParticlesBg";
+import ModelTest from "../components/sections/ModelTest"
 
 
 
