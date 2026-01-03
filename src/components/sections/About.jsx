@@ -135,10 +135,10 @@ export default function AboutSection() {
             </motion.p>
 
             <motion.div
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.015 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button variant="primary">Ver Projetos</Button>
+              <Button variant="primary">Mais Sobre Mim</Button>
             </motion.div>
           </motion.div>
 
@@ -156,7 +156,7 @@ export default function AboutSection() {
 
             {/* Canvas container */}
             <motion.div
-              className="relative z-10"
+              className="relative z-40"
               animate={{
                 x: [0, 0, 920, 920, -200, 0],
                 opacity: [1, 1, 1, 0, 0, 1],

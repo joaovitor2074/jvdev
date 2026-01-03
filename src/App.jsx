@@ -16,7 +16,9 @@ import './styles/App.css'
 
 function App() {
   return (
+    <>
     <Router>
+
       <Header />
 
       <Routes>
@@ -28,6 +30,7 @@ function App() {
 
       <Footer />
     </Router>
+    </>
   )
 }
 
