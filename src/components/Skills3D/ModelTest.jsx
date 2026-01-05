@@ -2,6 +2,8 @@ import { useGLTF } from "@react-three/drei";
 import { useEffect, useRef } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
+const isMobile = window.innerWidth < 768;
+
 
 export function Keyboard() {
   const { scene } = useGLTF("/models/keyboard.glb");
@@ -36,29 +38,30 @@ export function Keyboard() {
   }, [scene]);
 
   useFrame(() => {
-    // raycast
-    raycaster.current.setFromCamera(mouse, camera);
-    const intersects = raycaster.current.intersectObjects(
-      keys.current,
-      false
+  if (isMobile) return;
+
+  raycaster.current.setFromCamera(mouse, camera);
+  const intersects = raycaster.current.intersectObjects(
+    keys.current,
+    false
+  );
+
+  const hoveredKey = intersects[0]?.object || null;
+
+  keys.current.forEach((key) => {
+    const isHovered = key === hoveredKey;
+    const targetY = isHovered
+      ? key.userData.baseY - 0.05
+      : key.userData.baseY;
+
+    key.position.y = THREE.MathUtils.lerp(
+      key.position.y,
+      targetY,
+      0.25
     );
-
-    const hoveredKey = intersects[0]?.object || null;
-
-    keys.current.forEach((key) => {
-      const isHovered = key === hoveredKey;
-
-      const targetY = isHovered
-        ? key.userData.baseY - 0.05 // tecla apertada
-        : key.userData.baseY;
-
-      key.position.y = THREE.MathUtils.lerp(
-        key.position.y,
-        targetY,
-        0.25
-      );
-    });
   });
+});
+
 
   return (
     <primitive

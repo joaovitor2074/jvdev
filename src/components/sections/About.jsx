@@ -17,6 +17,8 @@ const container = {
     },
   },
 };
+const isMobile = window.innerWidth < 768;
+
 
 const itemLeft = {
   hidden: { opacity: 0, x: -80, filter: "blur(10px)" },
@@ -80,7 +82,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative min-h-screen overflow-visible bg-transparent"
+      className="relative min-h-screen overflow-hidden bg-transparent"
       style={{ isolation: "isolate" }}
     >
 
@@ -144,8 +146,19 @@ export default function AboutSection() {
 
           <motion.div
             variants={itemRight}
-            className="relative overflow-visible"
-            style={{ width: "600px", height: "480px" }} // garante área do canvas
+            className="
+  relative 
+  overflow-visible
+  w-full
+  max-w-600px
+  h-260px
+  sm:h-360px
+  md:h-420px
+  lg:h-480px
+  mx-auto
+"
+
+
           >
             {/* Halo */}
             <motion.div
@@ -156,27 +169,34 @@ export default function AboutSection() {
 
             {/* Canvas container */}
             <motion.div
-              className="relative z-40"
-              animate={{
-                x: [0, 0, 920, 920, -200, 0],
-                opacity: [1, 1, 1, 0, 0, 1],
-                scale: [1, 1, 1, 0.9, 0.9, 1],
-              }}
-              transition={{
-                duration: 14,
-                times: [0, 0.42, 0.5, 0.52, 0.65, 1],
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              style={{
-                willChange: "transform, opacity",
-              }}
+              className="relative z-40 w-full h-full flex items-center justify-center"
+              animate={
+                isMobile
+                  ? { opacity: 1, scale: 0.95 }
+                  : {
+                    x: ["0%", "0%", "120%", "120%", "-30%", "0%"],
+                    opacity: [1, 1, 1, 0, 0, 1],
+                    scale: [1, 1, 1, 0.92, 0.92, 1],
+                  }
+              }
+              transition={
+                isMobile
+                  ? { duration: 0 }
+                  : {
+                    duration: 14,
+                    times: [0, 0.42, 0.5, 0.52, 0.65, 1],
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }
+              }
             >
+
               <ModelTest />
+
             </motion.div>
-           </motion.div> 
-          </div>
-        </motion.div >
-      </section >
+          </motion.div>
+        </div>
+      </motion.div >
+    </section >
   );
 }

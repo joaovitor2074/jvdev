@@ -1,57 +1,75 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Button from "../ui/Button";
-
-// styles
 import "../../styles/layouts/header.css";
-
-// img
 import logotrans from "../../assets/images/jvdev-fundotransparente.png";
 
 export default function Header() {
+  const [open, setOpen] = useState(false);
+
+  const menuItems = ["Home", "About Me", "Projects", "Contact"];
+
   return (
     <motion.header
-      className="flex items-center justify-between p-4 bg-gray-800 text-white header"
+      className="header"
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      {/* LOGO */}
-      <motion.div
-        whileHover={{ scale: 1.1, rotate: -2 }}
-        transition={{ type: "spring", stiffness: 300 }}
-      >
-        <img src={logotrans} alt="Logo" className="logo" />
-      </motion.div>
+      <div className="header-container">
+        {/* LOGO */}
+        <motion.div
+          whileHover={{ scale: 1.1, rotate: -2 }}
+          transition={{ type: "spring", stiffness: 300 }}
+        >
+          <img src={logotrans} alt="Logo JVDev" className="logo" />
+        </motion.div>
 
-      {/* NAV */}
-      <nav className="nav">
-        <ul className="flex space-x-6">
-          {["Home", "About Me", "Projects", "Contact"].map((item, index) => (
-            <motion.li
+        {/* NAV DESKTOP */}
+        <nav className="nav">
+          <ul className="nav-list">
+            {menuItems.map((item) => (
+              <li key={item}>
+                <a
+                  href={`/${item.toLowerCase().replace(" ", "")}`}
+                  className="link"
+                >
+                  {item}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* BUTTON DESKTOP */}
+        <div className="div_btn">
+          <Button className="btn">Divirta-se</Button>
+        </div>
+
+        {/* HAMBURGER */}
+        <button
+          className="menu-btn"
+          onClick={() => setOpen(!open)}
+          aria-label="Abrir menu"
+        >
+          ☰
+        </button>
+      </div>
+
+      {/* MENU MOBILE */}
+      {open && (
+        <div className="mobile-menu">
+          {menuItems.map((item) => (
+            <a
               key={item}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 + index * 0.1 }}
+              href={`/${item.toLowerCase().replace(" ", "")}`}
+              onClick={() => setOpen(false)}
             >
-              <a href={`/${item.toLowerCase().replace(" ", "")}`} className="link">
-                {item}
-              </a>
-            </motion.li>
+              {item}
+            </a>
           ))}
-        </ul>
-      </nav>
-
-      {/* BUTTON */}
-      <motion.div
-        className="div_btn"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <Button className="btn" onClick={() => alert("🔥 Bem-vindo ao meu portfolio!")}>
-          Divirta-se
-        </Button>
-      </motion.div>
+        </div>
+      )}
     </motion.header>
   );
 }

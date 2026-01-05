@@ -47,6 +47,7 @@ export default function Contact() {
             GitHub
           </a>
         </div>
+        <a href="/contact" className="w-45 mt-10 flex m-auto px-6 py-3 rounded-lg  bg-blue-500 text-white hover:bg-blue-600 transition">mais informacoes para contato</a>
       </div>
     </section>
   );

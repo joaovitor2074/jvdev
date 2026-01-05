@@ -34,8 +34,8 @@ const ProjectCard = ({
             </div>
 
             <div className="project-content">
-                <h3>{title}</h3>
-                <p>{description}</p>
+                <h3 className="text-gray-50">{title}</h3>
+                <p className="text-gray-300">{description}</p>
 
                 <div className="project-techs">
                     {technologies.map((tech, i) => {
