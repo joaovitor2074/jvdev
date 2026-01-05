@@ -9,7 +9,7 @@
 
 
 .header-container {
-  max-width: 1280px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 1rem 2rem;
   display: flex;
@@ -19,13 +19,25 @@
 
 .logo{
     width: 6rem; /* Tailwind's w-24 */
-    margin-left: 12rem; /* Tailwind's ml-14 */
+    margin-left: 12rem; 
 }
 
 .nav{
     margin: 0 auto;
     font-size: 1.2rem;
+    display: inline-flex;
+
 }
+
+.nav-list {
+  display: flex;
+  gap: 40px; /* espaço entre os itens */
+  padding: 0;
+  margin: 0;
+
+}
+
+
 
 .link {
   position: relative;
@@ -43,6 +55,8 @@
   background-color: #79a3ec;
   transition: width 0.3s ease;
 }
+
+
 
 .link:hover{
     color: #79a3ec; /* Tailwind's gray-400 */
@@ -108,6 +122,9 @@
   font-size: 1.1rem;
   text-decoration: none;
 }
+
+
+
 
 /* RESPONSIVE */
 @media (max-width: 768px) {

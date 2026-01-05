@@ -76,17 +76,14 @@ export default function Hero() {
             variants={item}
             className="text-xl md:text-2xl text-gray-300"
           >
-            Desenvolvimento Web | JavaScript • React • Node.js • MySQL | Tailwind | Linux | Bolsista CNPq
+            Desenvolvedor Web Full Stack <br/>| JavaScript • React • Node.js • MySQL | Tailwind | Linux |
           </motion.h2>
 
           <motion.p
             variants={item}
             className="text-gray-400 max-w-xl"
           >
-            Atuação no desenvolvimento de sistemas e aplicações web institucionais,
-            com experiência prática em front-end, back-end e banco de dados.
-            Bolsista CNPq, participando da criação e organização de soluções web
-            utilizadas em ambiente real.
+            Atuo no desenvolvimento de sistemas e aplicações web institucionais, com experiência em front-end, back-end e banco de dados. Bolsista CNPq, participo da criação de soluções utilizadas em ambientes reais, com foco em qualidade, organização e desempenho.
           </motion.p>
 
           <motion.div
@@ -98,7 +95,7 @@ export default function Hero() {
             </motion.div>
 
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="secondary" className="btn-con">Contato</Button>
+              <Button variant="secondary" className="btn-con">Entrar em Contato</Button>
             </motion.div>
           </motion.div>
         </motion.div>
