@@ -65,7 +65,7 @@ const Projects = () => {
                     whileTap={{ scale: 0.95 }}
                     className="divBtn"
                 >
-                    <Button variant="primary" className="cursor-pointer mt-12">Explorar mais projetos</Button>
+                    <a href="/projects"><Button variant="primary" className="cursor-pointer mt-12">Explorar mais projetos</Button></a>
                 </motion.div>
 
         </section>

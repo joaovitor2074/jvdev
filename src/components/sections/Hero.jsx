@@ -91,11 +91,11 @@ export default function Hero() {
             className="flex gap-4"
           >
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="primary" className="btn_pro">Ver Projetos</Button>
+              <a href="/projects"><Button variant="primary" className="btn_pro">Ver Projetos</Button></a>
             </motion.div>
 
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="secondary" className="btn-con">Entrar em Contato</Button>
+              <a href="/contact"><Button variant="secondary" className="btn-con">Entrar em Contato</Button></a>
             </motion.div>
           </motion.div>
         </motion.div>

@@ -7,7 +7,7 @@ import logotrans from "../../assets/images/jvdev-fundotransparente.png";
 export default function Header() {
   const [open, setOpen] = useState(false);
 
-  const menuItems = ["Home", "About Me", "Projects", "Contact"];
+  const menuItems = [ "About Me", "Projects", "Contact"];
 
   return (
     <motion.header
@@ -22,12 +22,16 @@ export default function Header() {
           whileHover={{ scale: 1.1, rotate: -2 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          <img src={logotrans} alt="Logo JVDev" className="logo" />
+          <a href="/"><img src={logotrans} alt="Logo JVDev" className="logo" /></a>
+          
         </motion.div>
 
         {/* NAV DESKTOP */}
         <nav className="nav">
           <ul className="nav-list">
+            <li>
+              <a href="/" className="link">Home</a>
+            </li>
             {menuItems.map((item) => (
               <li key={item}>
                 <a

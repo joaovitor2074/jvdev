@@ -140,7 +140,7 @@ export default function AboutSection() {
             </p>
 
             <motion.div whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="primary" className="btn_pro">Ver Projetos</Button>
+              <a href="/contact"><Button variant="primary" className="btn_pro">Vamos conversar</Button></a>
             </motion.div>
           </motion.div>
 

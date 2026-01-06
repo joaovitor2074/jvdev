@@ -23,14 +23,16 @@ export default function Footer() {
         {/* NAVEGAÇÃO */}
         <div className="flex flex-col items-center gap-2">
           <h4 className="text-white font-semibold mb-2">Navegação</h4>
-          {["Home", "About Me", "Projects", "Contact"].map((item) => (
-            <a
-              key={item}
-              href={`/${item.toLowerCase().replace(" ", "")}`}
-              className="hover:text-blue-400 transition"
-            >
-              {item}
-            </a>
+            <a href="/" className="hover:text-blue-400 transition" >Home</a>
+          {["About Me", "Projects", "Contact"].map((item) => (
+            
+              <a
+                key={item}
+                href={`/${item.toLowerCase().replace(" ", "")}`}
+                className="hover:text-blue-400 transition"
+              >
+                {item}
+              </a>
           ))}
         </div>
 

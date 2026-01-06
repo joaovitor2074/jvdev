@@ -20,6 +20,7 @@
 .logo{
     width: 6rem; /* Tailwind's w-24 */
     margin-left: 12rem; 
+    cursor: auto;
 }
 
 .nav{
