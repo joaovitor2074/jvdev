@@ -48,6 +48,12 @@
     min-height: 92vh;
 }
 
+@media (max-width: 768px) {
+  #home{
+    margin-top: 4rem;
+  }
+  }
+
 .btn_pro {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;

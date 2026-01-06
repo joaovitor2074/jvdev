@@ -13,8 +13,7 @@ export default function Contact() {
 
         <p className="text-gray-400 mt-4 max-w-xl mx-auto">
           Estou aberto a oportunidades, projetos e colaborações.
-          Se quiser conversar ou saber mais sobre meu trabalho,
-          entre em contato.
+Se quiser conversar ou saber mais sobre meu trabalho, fique à vontade para entrar em contato.
         </p>
 
         {/* Actions */}
@@ -47,7 +46,7 @@ export default function Contact() {
             GitHub
           </a>
         </div>
-        <a href="/contact" className="w-45 mt-10 flex m-auto px-6 py-3 rounded-lg  bg-blue-500 text-white hover:bg-blue-600 transition">mais informacoes para contato</a>
+        <a href="/contact" className="w-45 mt-10 flex m-auto px-6 py-3 rounded-lg  bg-blue-500 text-white hover:bg-blue-600 transition">Mais informações de contato</a>
       </div>
     </section>
   );

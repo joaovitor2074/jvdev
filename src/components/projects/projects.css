@@ -7,6 +7,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  #projects{
+    margin-top: 4rem;
+  }
+}
+
 @media (min-width: 1280px) {
   .projects {
     padding: 0 4rem;
@@ -128,6 +134,7 @@
 /* Conteúdo */
 .project-content {
   padding: 1.5rem;
+  background-color: #0b1220;
 }
 
 .project-techs {

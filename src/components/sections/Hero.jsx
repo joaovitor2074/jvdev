@@ -46,7 +46,7 @@ export default function Hero() {
           variants={container}
           initial="hidden"
           animate="show"
-          className="space-y-6 "
+          className="space-y-6 hero-text"
         >
           <motion.h1
             variants={item}

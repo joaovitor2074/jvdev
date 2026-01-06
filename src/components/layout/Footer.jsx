@@ -5,7 +5,7 @@ import logotrans from "../../assets/images/jvdev-fundotransparente.png";
 export default function Footer() {
   return (
     <motion.footer
-      className="bg-gray-900 text-gray-300 px-6 py-10 mt-20"
+      className="bg-gray-900 text-gray-300 px-6 py-5 mt-10"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -16,7 +16,7 @@ export default function Footer() {
         <div className="flex flex-col items-center md:items-start gap-3">
           <img src={logotrans} alt="JVDev Logo" className="w-20" />
           <p className="text-sm text-gray-400">
-            Desenvolvedor Front-end focado em interfaces modernas e funcionais.
+            Desenvolvedor Front-end focado em interfaces modernas, funcionais e orientadas à experiência do usuário.
           </p>
         </div>
 
@@ -38,14 +38,14 @@ export default function Footer() {
         <div className="flex flex-col items-center md:items-end gap-2">
           <h4 className="text-white font-semibold mb-2">Contato</h4>
           <a
-            href="https://github.com/"
+            href="https://github.com/joaovitor2074"
             target="_blank"
             className="hover:text-blue-400 transition"
           >
             GitHub
           </a>
           <a
-            href="https://linkedin.com/"
+            href="https://www.linkedin.com/in/joao-vitor-salazar-vieira-9387aa344"
             target="_blank"
             className="hover:text-blue-400 transition"
           >

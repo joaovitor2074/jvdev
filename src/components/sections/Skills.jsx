@@ -42,10 +42,10 @@ export default function Skills() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-white text-3xl md:text-4xl font-semibold">
-            Skills
+           Skills & Tecnologias
           </h2>
           <p className="text-gray-400 mt-4">
-            Tecnologias que utilizo em projetos reais
+            Tecnologias que utilizo em projetos reais, estudos avançados e sistemas em produção.
           </p>
         </div>
 

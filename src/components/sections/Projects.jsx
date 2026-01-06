@@ -34,17 +34,17 @@ const Projects = () => {
                 transition={{ duration: 0.6 }}
             >
                 <h2 className="text-4xl md:text-5xl font-bold mb-2 text-white">
-                    Projetos
+                    Projetos em Destaque
                 </h2>
                 <p className="text-xl md:text-2xl text-gray-300">
-                    Projetos reais focados em front-end, back-end e automações
+                    Projetos reais com foco em front-end, back-end, automação e integração com dados reais.
                 </p>
             </motion.div>
 
             <div className="projects-grid">
                 <ProjectCard
-                    title="GIEPI"
-                    description="Sistema institucional com scraping, automações e painel admin."
+                    title="GIEPI — Sistema Institucional de Pesquisa"
+                    description="Desenvolvido para organizar dados do CNPq (Lattes), linhas de pesquisa, pesquisadores e projetos, com automação de coleta, normalização e publicação controlada."
                     image={giepi}
                     technologies={[html, css, mysql, js, tailwind, vercel, git, github, react, node, nest]}
                     url="https://aqarh.vercel.app"
@@ -52,8 +52,8 @@ const Projects = () => {
                 />
 
                 <ProjectCard
-                    title="Site Psicóloga"
-                    description="Website profissional com foco em conversão e contato via WhatsApp."
+                    title="Site Profissional — Psicologia"
+                    description="Projeto desenvolvido para psicóloga, com identidade visual, conteúdo estratégico e integração direta com WhatsApp para agendamentos."
                     image={alessandra}
                     technologies={[wordpress, js, html, css]}
                     url="https://alessandramacedo.com"
@@ -65,7 +65,7 @@ const Projects = () => {
                     whileTap={{ scale: 0.95 }}
                     className="divBtn"
                 >
-                    <Button variant="primary" className="cursor-pointer mt-12">Mais Projetos como esses</Button>
+                    <Button variant="primary" className="cursor-pointer mt-12">Explorar mais projetos</Button>
                 </motion.div>
 
         </section>
