@@ -1,0 +1,126 @@
+#aboutme{
+     background:
+    radial-gradient(
+      circle at top left,
+      rgba(59, 130, 246, 0.18),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(37, 99, 235, 0.18),
+      transparent 45%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(5, 11, 24, 0.68),
+      rgba(2, 6, 23, 0.72)
+    );
+}
+#aboutme p {
+  margin-top: 1rem;
+}
+
+@media (max-width: 640px) {
+  #aboutme p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+
+
+/*hero*/
+.coffee-wrapper {
+  width: 100%;
+  max-width: 360px;
+  height: 260px;
+  border-radius: 12px;
+  border: 1px solid #27272a;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+  .coffee-wrapper {
+    max-width: 420px;
+    height: 320px;
+    margin: 0;
+  }
+}
+
+/* Desktop grande */
+@media (min-width: 1024px) {
+  .coffee-wrapper {
+    max-width: 480px;
+    height: 360px;
+  }
+}
+
+
+.cta-btn:hover{
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+/* Container geral das tecnologias */
+.techs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 2rem;
+
+    max-width: 900px;
+    margin: 3rem auto 0;
+
+    justify-items: center;
+    align-items: center;
+}
+
+/* Cada ícone */
+.techs .icon {
+    font-size: 3rem;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 70px;
+    height: 70px;
+
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(6px);
+
+    transition: 
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Hover visual (complementa o Framer Motion) */
+.techs .icon:hover {
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .techs {
+        gap: 1.5rem;
+    }
+
+    .techs .icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2.5rem;
+    }
+}

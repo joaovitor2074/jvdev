@@ -30,6 +30,8 @@ export default function ModelTest() {
         minPolarAngle={Math.PI / 3}
         enablePan={false}
       />
+    <Environment preset="night" />
     </Canvas>
+
   );
 }
