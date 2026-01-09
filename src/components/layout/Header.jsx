@@ -53,9 +53,9 @@ export default function Header() {
         </nav>
 
         {/* BUTTON DESKTOP */}
-        <div className="div_btn">
+        {/* <div className="div_btn">
           <Button className="btn">Divirta-se</Button>
-        </div>
+        </div> */}
 
         {/* HAMBURGER */}
         <button
