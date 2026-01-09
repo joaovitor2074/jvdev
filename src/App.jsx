@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import SobreMim from './pages/SobreMim'
 import Projects from './pages/Project'
-import Contato from './pages/Contato'
+import Contact from './pages/Contato'
 
 // components
 import Header from './components/layout/Header'
@@ -25,7 +25,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/aboutme" element={<SobreMim />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/contato" element={<Contato />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
 
       <Footer />

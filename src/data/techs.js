@@ -1,4 +1,5 @@
 // techs.js
+import { color } from "framer-motion";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -7,6 +8,7 @@ import {
   FaReact,
   FaGit,
   FaGithub,
+  FaWordpress
 } from "react-icons/fa";
 import {
   SiTypescript,
@@ -89,4 +91,10 @@ export const TECHS = {
     icon: FaGithub,
     color: "#FFFFFF",
   },
+  wordpress: {
+    id: "wordpress",
+    name:"Wordpress",
+    icon:FaWordpress,
+    color:"#3178C6",
+  }
 };

@@ -18,7 +18,7 @@ const ProjectCard = ({ title, description, image, technologies, url }) => {
         <div className="absolute inset-0 bg-black/60 opacity-0 hover:opacity-100 transition flex items-center justify-center">
           <button
             onClick={() => window.open(url, "_blank")}
-            className="px-4 py-2 bg-blue-600 rounded text-sm"
+            className="previuw-btn px-4 py-2 bg-blue-600 rounded text-sm"
           >
             Ver projeto
           </button>

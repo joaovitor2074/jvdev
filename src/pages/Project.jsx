@@ -4,7 +4,7 @@ import Button from "../components/ui/Button";
 import ProjectCard from "../components/projects/projectCardpage";
 import { projetos } from "../data/projects";
 
-import "../styles/pages/aboutme.css";
+import "../styles/pages/project.css";
 
 const container = {
   hidden: { opacity: 0 },
@@ -25,7 +25,7 @@ const item = {
 
 export default function Projects() {
   return (
-    <main className="relative min-h-screen text-zinc-100 px-6 md:px-12 py-20">
+    <main id="project" className=" relative min-h-screen text-zinc-100 px-6 md:px-12 py-20">
       {/* Background */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <ParticlesBg />
@@ -112,9 +112,12 @@ export default function Projects() {
           aplicadas em cada projeto.
         </p>
 
-        <Button variant="primary" className="px-8 py-3 text-base">
-          Entrar em contato
-        </Button>
+        <a href="mailto:jv.dev2074@gmail.com?subject=Conversa%20sobre%20criação%20de%20projetos&body=Olá%20João%2C%0A%0AGostaria%20de%20conversar%20sobre%20como%20você%20desenvolve%20seus%20projetos%2C%20arquitetura%2C%20processos%20e%20boas%20práticas.%0A%0AFico%20no%20aguardo.%0A
+">
+          <Button variant="primary" className="px-8 py-3 text-base cta-project">
+            Entrar em contato
+          </Button>
+        </a>
       </motion.section>
     </main>
   );

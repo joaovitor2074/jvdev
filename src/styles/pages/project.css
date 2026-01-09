@@ -1,0 +1,225 @@
+#project{
+     background:
+    radial-gradient(
+      circle at top left,
+      rgba(59, 130, 246, 0.18),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(37, 99, 235, 0.18),
+      transparent 45%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(5, 11, 24, 0.68),
+      rgba(2, 6, 23, 0.72)
+    );
+    position: relative;
+}
+
+
+/* =========================
+   PAGE BASE
+========================= */
+
+#project h1,
+#project h2,
+#project h3 {
+  letter-spacing: -0.02em;
+}
+
+/* =========================
+   HERO
+========================= */
+
+#project > section:first-of-type h1 {
+  background: linear-gradient(90deg, #ffffff, #a1a1aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#project > section:first-of-type p {
+  color: #a1a1aa;
+}
+
+/* =========================
+   GRID DE PROJETOS
+========================= */
+
+#project .grid {
+  align-items: stretch;
+}
+
+/* =========================
+   PROJECT CARD
+========================= */
+
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  background: linear-gradient(
+    180deg,
+    rgba(24, 24, 27, 0.6),
+    rgba(9, 9, 11, 0.9)
+  );
+  border: 1px solid rgba(63, 63, 70, 0.4);
+  overflow: hidden;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================
+   PROJECT IMAGE
+========================= */
+
+.project-preview {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.project-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85) saturate(1.1);
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.project-card:hover .project-preview img {
+  transform: scale(1.08);
+  filter: brightness(1);
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.85)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: linear-gradient(90deg, #3b82f6, #6366f1);
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.5);
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.project-content {
+  padding: 1.25rem 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.project-content h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #f4f4f5;
+}
+
+.project-content p {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #a1a1aa;
+}
+
+/* =========================
+   TECH BADGES
+========================= */
+
+.project-techs {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-badge {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(0.9);
+  opacity: 0.85;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.project-card:hover .tech-badge {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* =========================
+   BLOCO TÉCNICO
+========================= */
+
+#project section h2 {
+  color: #e4e4e7;
+}
+
+#project section p {
+  color: #a1a1aa;
+}
+
+/* =========================
+   CTA
+========================= */
+
+#project section:last-of-type {
+  box-shadow: inset 0 0 0 1px rgba(63, 63, 70, 0.4);
+}
+
+#project section:last-of-type h3 {
+  background: linear-gradient(90deg, #ffffff, #c7d2fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#project section:last-of-type p {
+  color: #a1a1aa;
+}
+
+.previuw-btn:hover{
+    cursor: pointer;
+    background-color: #015beb;
+}
+
+.cta-project:hover{
+    cursor: pointer;
+}
