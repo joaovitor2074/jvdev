@@ -123,6 +123,9 @@
   font-size: 1.1rem;
   text-decoration: none;
 }
+.mobile-link.active {
+  color: #00aeff;
+}
 
 
 

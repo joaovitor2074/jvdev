@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
 import Button from "../ui/Button";
 import "../../styles/layouts/header.css";
 import logotrans from "../../assets/images/jvdev-fundotransparente.png";
@@ -7,7 +8,12 @@ import logotrans from "../../assets/images/jvdev-fundotransparente.png";
 export default function Header() {
   const [open, setOpen] = useState(false);
 
-  const menuItems = [ "About Me", "Projects", "Contact"];
+  const menuItems = [
+    { label: "Home", path: "/" },
+    { label: "About Me", path: "/about" },
+    { label: "Projects", path: "/projects" },
+    { label: "Contact", path: "/contact" },
+  ];
 
   return (
     <motion.header
@@ -22,24 +28,25 @@ export default function Header() {
           whileHover={{ scale: 1.1, rotate: -2 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          <a href="/"><img src={logotrans} alt="Logo JVDev" className="logo" /></a>
-          
+          <NavLink to="/">
+            <img src={logotrans} alt="Logo JVDev" className="logo" />
+          </NavLink>
         </motion.div>
 
         {/* NAV DESKTOP */}
         <nav className="nav">
           <ul className="nav-list">
-            <li>
-              <a href="/" className="link">Home</a>
-            </li>
-            {menuItems.map((item) => (
-              <li key={item}>
-                <a
-                  href={`/${item.toLowerCase().replace(" ", "")}`}
-                  className="link"
+            {menuItems.map(({ label, path }) => (
+              <li key={path}>
+                <NavLink
+                  to={path}
+                  className={({ isActive }) =>
+                    isActive ? "link active" : "link"
+                  }
+                  end={path === "/"} 
                 >
-                  {item}
-                </a>
+                  {label}
+                </NavLink>
               </li>
             ))}
           </ul>
@@ -63,14 +70,18 @@ export default function Header() {
       {/* MENU MOBILE */}
       {open && (
         <div className="mobile-menu">
-          {menuItems.map((item) => (
-            <a
-              key={item}
-              href={`/${item.toLowerCase().replace(" ", "")}`}
+          {menuItems.map(({ label, path }) => (
+            <NavLink
+              key={path}
+              to={path}
+              className={({ isActive }) =>
+                isActive ? "mobile-link active" : "mobile-link"
+              }
+              end={path === "/"}
               onClick={() => setOpen(false)}
             >
-              {item}
-            </a>
+              {label}
+            </NavLink>
           ))}
         </div>
       )}
