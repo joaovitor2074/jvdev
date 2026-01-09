@@ -1,6 +1,6 @@
 import reactIcon from "@/assets/images/icons/react.png";
 import viteIcon from "@/assets/images/icons/vite.png";
-import tailwindIcon from "@/assets/images/icons/Tailwind.png";
+import tailwindIcon from "@/assets/images/icons/tailwind.png";
 import framerIcon from "@/assets/images/icons/frame.png";
 import wordpressIcon from "@/assets/images/icons/wordpress.png";
 
