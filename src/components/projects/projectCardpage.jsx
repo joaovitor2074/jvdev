@@ -1,54 +1,89 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { TECHS } from "../../data/techs";
 
-const ProjectCard = ({ title, description, image, technologies, url }) => {
-  return (
-    <motion.div
-      className="rounded-2xl border border-zinc-800 bg-zinc-900/40 backdrop-blur p-6"
-      initial={{ opacity: 0, y: 60 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      whileHover={{ y: -6 }}
-    >
-      {/* Preview */}
-      <div className="relative rounded-xl overflow-hidden mb-4">
-        <img src={image} alt={title} className="w-full h-48 object-cover" />
+const ProjectCard = ({
+  title,
+  category,
+  description,
+  image,
+  gallery = [],
+  technologies = [],
+  url,
+}) => {
+  const shouldReduceMotion = useReducedMotion();
+  const galleryPreview = gallery.slice(0, 3);
 
-        <div className="absolute inset-0 bg-black/60 opacity-0 hover:opacity-100 transition flex items-center justify-center">
-          <button
-            onClick={() => window.open(url, "_blank")}
-            className="previuw-btn px-4 py-2 bg-blue-600 rounded text-sm"
-          >
-            Ver projeto
-          </button>
+  return (
+    <motion.article
+      className="project-page-card"
+      initial={shouldReduceMotion ? false : { opacity: 0, y: 44 }}
+      whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.55, ease: "easeOut" }}
+      whileHover={shouldReduceMotion ? undefined : { y: -6 }}
+    >
+      <div className="project-page-preview">
+        <img
+          src={image}
+          alt={`Prévia do projeto ${title}`}
+          loading="lazy"
+          decoding="async"
+          sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
+        />
+
+        <div className="project-page-overlay">
+          {url ? (
+            <a href={url} target="_blank" rel="noreferrer" className="project-page-action">
+              Ver projeto
+            </a>
+          ) : (
+            <span className="project-page-action is-disabled">
+              Em desenvolvimento
+            </span>
+          )}
         </div>
       </div>
 
-      {/* Conteúdo */}
-      <h3 className="text-lg font-semibold mb-2">{title}</h3>
-      <p className="text-sm text-zinc-400 mb-4">{description}</p>
+      {galleryPreview.length > 0 && (
+        <div className="project-gallery-strip" aria-label={`Outras telas de ${title}`}>
+          {galleryPreview.map((galleryImage, index) => (
+            <img
+              key={galleryImage}
+              src={galleryImage}
+              alt={`Tela ${index + 1} de ${title}`}
+              loading="lazy"
+              decoding="async"
+            />
+          ))}
+        </div>
+      )}
 
-      {/* Tecnologias */}
-      <div className="flex flex-wrap gap-3">
-        {technologies.map((techId) => {
-          const tech = TECHS[techId];
-          const Icon = tech.icon;
+      <div className="project-page-content">
+        {category && <span>{category}</span>}
+        <h3>{title}</h3>
+        <p>{description}</p>
 
-          return (
-            <motion.div
-              key={tech.id}
-              title={tech.name}
-              whileHover={{ scale: 1.25 }}
-              className="text-xl"
-              style={{ color: tech.color }}
-            >
-              <Icon />
-            </motion.div>
-          );
-        })}
+        <div className="project-page-techs" aria-label="Tecnologias utilizadas">
+          {technologies.map((techId, index) => {
+            const tech = TECHS[techId];
+            if (!tech) return null;
+            const Icon = tech.icon;
+
+            return (
+              <motion.span
+                key={`${tech.id}-${index}`}
+                title={tech.name}
+                style={{ color: tech.color }}
+                whileHover={shouldReduceMotion ? undefined : { scale: 1.18 }}
+              >
+                <Icon aria-hidden="true" />
+                <span className="sr-only">{tech.name}</span>
+              </motion.span>
+            );
+          })}
+        </div>
       </div>
-    </motion.div>
+    </motion.article>
   );
 };
 

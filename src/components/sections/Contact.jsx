@@ -5,7 +5,7 @@ const contacts = [
   {
     label: "Email",
     icon: FaEnvelope,
-    href: "mailto:jv.dev2074@gmail.com?subject=Contato%20via%20Portfólio",
+    href: "mailto:jv.dev2074@gmail.com?subject=Contato%20via%20Portf%C3%B3lio",
     bg: "from-blue-500 to-blue-600",
   },
   {
@@ -26,12 +26,10 @@ const contacts = [
 
 export default function Contact() {
   return (
-    <section className="relative py-28 px-6 overflow-hidden">
-      {/* Background blur */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10 blur-3xl" />
+    <section className="relative py-20 sm:py-28 px-4 sm:px-6 overflow-hidden">
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-blue-500/10 via-transparent to-cyan-500/10 blur-3xl" />
 
       <div className="max-w-5xl mx-auto text-center">
-        {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -49,14 +47,12 @@ export default function Contact() {
           viewport={{ once: true }}
           className="text-gray-400 mt-6 max-w-xl mx-auto leading-relaxed"
         >
-          Estou aberto a oportunidades, projetos e colaborações.
-          <br />
-          Se quiser conversar ou saber mais sobre meu trabalho,
-          fique à vontade para entrar em contato.
+          Estou aberto a oportunidades, projetos e colaborações. Se quiser
+          conversar ou saber mais sobre meu trabalho, fique à vontade para
+          entrar em contato.
         </motion.p>
 
-        {/* Cards */}
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
           {contacts.map((item, index) => {
             const Icon = item.icon;
 
@@ -66,19 +62,15 @@ export default function Contact() {
                 href={item.href}
                 target={item.external ? "_blank" : undefined}
                 rel={item.external ? "noreferrer" : undefined}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 34 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.15 }}
+                transition={{ delay: index * 0.12 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.08 }}
-                className="group relative rounded-2xl p-8 backdrop-blur-xl
-                           bg-white/5 border border-white/10
-                           hover:border-blue-500/40 transition-all"
+                whileHover={{ scale: 1.04 }}
+                className="group relative rounded-lg p-6 sm:p-8 backdrop-blur-xl bg-white/5 border border-white/10 hover:border-blue-500/40 transition-all"
               >
-                {/* Gradient glow */}
                 <div
-                  className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition
-                              bg-gradient-to-br ${item.bg}`}
+                  className={`absolute inset-0 rounded-lg opacity-0 group-hover:opacity-20 transition bg-gradient-to-br ${item.bg}`}
                 />
 
                 <div className="relative flex flex-col items-center gap-4">
@@ -92,17 +84,14 @@ export default function Contact() {
           })}
         </div>
 
-        {/* More info */}
         <motion.a
           href="/contact"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
+          transition={{ delay: 0.35 }}
           viewport={{ once: true }}
-          whileHover={{ scale: 1.05 }}
-          className="inline-block mt-16 px-10 py-4 rounded-xl
-                     bg-blue-500 text-white font-medium
-                     hover:bg-blue-600 transition"
+          whileHover={{ scale: 1.04 }}
+          className="inline-block mt-12 sm:mt-16 px-8 sm:px-10 py-4 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition"
         >
           Mais informações de contato
         </motion.a>

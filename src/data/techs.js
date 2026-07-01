@@ -1,5 +1,3 @@
-// techs.js
-import { color } from "framer-motion";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -16,6 +14,7 @@ import {
   SiExpress,
   SiVercel,
   SiNestjs,
+  SiMysql,
 } from "react-icons/si";
 
 export const TECHS = {
@@ -93,8 +92,14 @@ export const TECHS = {
   },
   wordpress: {
     id: "wordpress",
-    name:"Wordpress",
+    name:"WordPress",
     icon:FaWordpress,
     color:"#3178C6",
+  },
+  mysql:{
+    id:"mysql",
+    name:"MySQL",
+    icon:SiMysql,
+    color: "#F7931E"
   }
 };

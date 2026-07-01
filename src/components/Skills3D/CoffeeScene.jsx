@@ -1,7 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment } from "@react-three/drei";
 import Coffee from "./Coffee";
-import Cup from "./cup"
 
 export default function CoffeeScene() {
     return (

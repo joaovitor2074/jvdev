@@ -1,37 +1,33 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Suspense, lazy } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// pages
-import Home from './pages/Home'
-import SobreMim from './pages/SobreMim'
-import Projects from './pages/Project'
-import Contact from './pages/Contato'
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
 
-// components
-import Header from './components/layout/Header'
-import Footer from './components/layout/Footer'
+import "./styles/App.css";
 
-// styles
-import './styles/App.css'
+const Home = lazy(() => import("./pages/Home"));
+const SobreMim = lazy(() => import("./pages/SobreMim"));
+const Projects = lazy(() => import("./pages/Project"));
+const Contact = lazy(() => import("./pages/Contato"));
 
 function App() {
   return (
-    <>
     <Router>
-
       <Header />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<SobreMim />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+      <Suspense fallback={<div className="page-loading" />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<SobreMim />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Suspense>
 
       <Footer />
     </Router>
-    </>
-  )
+  );
 }
 
-export default App
+export default App;

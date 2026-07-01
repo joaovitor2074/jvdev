@@ -10,7 +10,7 @@ const container = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.15 },
+    transition: { staggerChildren: 0.12 },
   },
 };
 
@@ -19,68 +19,70 @@ const item = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.55, ease: "easeOut" },
   },
 };
 
 export default function Projects() {
   return (
-    <main id="project" className=" relative min-h-screen text-zinc-100 px-6 md:px-12 py-20">
-      {/* Background */}
+    <main id="project" className="relative min-h-screen text-zinc-100 px-4 sm:px-6 md:px-12 py-16 sm:py-20">
       <div className="fixed inset-0 z-0 pointer-events-none">
         <ParticlesBg />
       </div>
 
-      {/* HERO */}
       <motion.section
-        className="relative z-10 max-w-5xl mx-auto mb-24"
+        className="relative z-10 max-w-5xl mx-auto mb-14 sm:mb-20"
         variants={container}
         initial="hidden"
         animate="visible"
       >
+        <motion.span variants={item} className="section-kicker">
+          Sistemas e experiências recentes
+        </motion.span>
+
         <motion.h1
           variants={item}
-          className="text-4xl md:text-5xl font-bold mb-6"
+          className="text-4xl md:text-5xl font-bold mt-3 mb-6"
         >
           Projetos
         </motion.h1>
 
         <motion.p
           variants={item}
-          className="text-lg text-zinc-300 max-w-3xl leading-relaxed"
+          className="text-base sm:text-lg text-zinc-300 max-w-3xl leading-relaxed"
         >
-          Aqui estão alguns dos sistemas e aplicações que desenvolvi para uso
-          real, envolvendo arquitetura bem definida, organização de dados e
-          soluções pensadas para manutenção e evolução contínua.
+          Aqui estão sistemas e aplicações que desenvolvi para contextos reais,
+          incluindo gestão acadêmica, painéis administrativos, automações,
+          aplicações web responsivas e projetos de estudo.
         </motion.p>
       </motion.section>
 
-      {/* GRID DE PROJETOS */}
       <motion.section
-        className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-28"
+        className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-6 mb-20"
         variants={container}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "-80px" }}
       >
         {projetos.map((projeto) => (
           <ProjectCard
             key={projeto.id}
             title={projeto.titulo}
+            category={projeto.categoria}
             description={projeto.descricao}
             image={projeto.image}
+            gallery={projeto.gallery}
             technologies={projeto.techs}
             url={projeto.link}
           />
         ))}
       </motion.section>
 
-      {/* BLOCO TÉCNICO */}
       <motion.section
-        className="relative z-10 max-w-5xl mx-auto mb-28"
-        initial={{ opacity: 0, y: 40 }}
+        className="relative z-10 max-w-5xl mx-auto mb-20 px-5 sm:px-6 py-8 project-info-band"
+        initial={{ opacity: 0, y: 36 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.55 }}
         viewport={{ once: true }}
       >
         <h2 className="text-2xl font-semibold mb-4">
@@ -88,19 +90,19 @@ export default function Projects() {
         </h2>
 
         <p className="text-zinc-300 leading-relaxed max-w-3xl">
-          Cada projeto é pensado desde a modelagem dos dados até a arquitetura da
-          aplicação, priorizando clareza, escalabilidade e facilidade de
-          manutenção. Trabalho com foco em código limpo, boas práticas e
-          responsabilidade técnica.
+          Cada entrega parte do entendimento do problema, passa pela modelagem
+          dos dados e segue para a implementação com atenção a arquitetura,
+          responsividade, performance e manutenção. Nos projetos institucionais,
+          também trabalho com integração de dados, automações e rotinas de
+          acompanhamento administrativo.
         </p>
       </motion.section>
 
-      {/* CTA */}
       <motion.section
-        className="relative z-10 max-w-5xl mx-auto rounded-2xl border border-zinc-800 bg-zinc-900/40 backdrop-blur px-6 py-12 text-center"
-        initial={{ opacity: 0, y: 60 }}
+        className="relative z-10 max-w-5xl mx-auto project-info-band px-5 sm:px-6 py-10 text-center"
+        initial={{ opacity: 0, y: 48 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true }}
       >
         <h3 className="text-2xl md:text-3xl font-semibold mb-4">
@@ -112,8 +114,7 @@ export default function Projects() {
           aplicadas em cada projeto.
         </p>
 
-        <a href="mailto:jv.dev2074@gmail.com?subject=Conversa%20sobre%20criação%20de%20projetos&body=Olá%20João%2C%0A%0AGostaria%20de%20conversar%20sobre%20como%20você%20desenvolve%20seus%20projetos%2C%20arquitetura%2C%20processos%20e%20boas%20práticas.%0A%0AFico%20no%20aguardo.%0A
-">
+        <a href="mailto:jv.dev2074@gmail.com?subject=Conversa%20sobre%20projetos&body=Ol%C3%A1%20Jo%C3%A3o%2C%0A%0AGostaria%20de%20conversar%20sobre%20seus%20projetos%2C%20arquitetura%20e%20processos.%0A%0AFico%20no%20aguardo.">
           <Button variant="primary" className="px-8 py-3 text-base cta-project">
             Entrar em contato
           </Button>

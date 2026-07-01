@@ -7,6 +7,7 @@ import wordpressIcon from "@/assets/images/icons/wordpress.png";
 import nodeIcon from "@/assets/images/icons/node.png";
 import expressIcon from "@/assets/images/icons/express.png";
 import mysqlIcon from "@/assets/images/icons/mysql.png";
+import nestIcon from "@/assets/images/icons/nest.png";
 
 import threeIcon from "@/assets/images/icons/three.png";
 import blenderIcon from "@/assets/images/icons/blender.png";
@@ -16,31 +17,29 @@ import linuxIcon from "@/assets/images/icons/linux.png";
 import puppeteerIcon from "@/assets/images/icons/puppeteer.png";
 import vercelIcon from "@/assets/images/icons/vercel.png";
 
-
-
-
 export default function Skills() {
   const skills = [
     {
-      title: "Frontend",
+      title: "Front-end",
       items: [
         { name: "React", icon: reactIcon },
         { name: "Vite", icon: viteIcon },
         { name: "Tailwind CSS", icon: tailwindIcon },
         { name: "Framer Motion", icon: framerIcon },
-        { name: "WordPress", icon: wordpressIcon }
+        { name: "WordPress", icon: wordpressIcon },
       ],
     },
     {
-      title: "Backend",
+      title: "Back-end e dados",
       items: [
         { name: "Node.js", icon: nodeIcon },
         { name: "Express", icon: expressIcon },
+        { name: "NestJS", icon: nestIcon },
         { name: "MySQL", icon: mysqlIcon },
       ],
     },
     {
-      title: "3D / Creative",
+      title: "3D e interfaces",
       items: [
         { name: "Three.js", icon: threeIcon },
         { name: "Blender", icon: blenderIcon },
@@ -55,26 +54,27 @@ export default function Skills() {
         { name: "Vercel", icon: vercelIcon },
       ],
     },
-
   ];
 
   return (
-    <section className="py-24 px-6">
+    <section className="py-20 sm:py-24 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-white text-3xl md:text-4xl font-semibold">
-            Skills & Tecnologias
+        <div className="text-center mb-12 sm:mb-16">
+          <span className="section-kicker mx-auto">Stack técnica</span>
+          <h2 className="text-white text-3xl md:text-4xl font-semibold mt-3">
+            Tecnologias
           </h2>
-          <p className="text-gray-400 mt-4">
-            Tecnologias que utilizo em projetos reais, estudos avançados e sistemas em produção.
+          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+            Ferramentas que utilizo em sistemas reais, estudos avançados,
+            automações e aplicações em produção.
           </p>
         </div>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {skills.map((skill) => (
             <div
               key={skill.title}
-              className="bg-white/5 border border-white/10 rounded-xl p-6"
+              className="bg-white/5 border border-white/10 rounded-lg p-5 sm:p-6"
             >
               <h3 className="text-white text-lg font-medium mb-4">
                 {skill.title}
@@ -91,6 +91,7 @@ export default function Skills() {
                       alt={item.name}
                       className="w-5 h-5 object-contain"
                       loading="lazy"
+                      decoding="async"
                     />
                     {item.name}
                   </li>

@@ -1,13 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Button from "../ui/Button";
-import ParticlesBg from "../ui/ParticlesBg";
 
-import banner from "../../assets/images/banner.png";
+import banner from "../../assets/images/banner-optimized.jpg";
 import "../../styles/index.css";
 import "../../styles/sections/hero.css";
 
-/* Variants */
 const container = {
   hidden: {},
   show: {
@@ -33,15 +31,7 @@ export default function Hero() {
       id="home"
       className="relative w-full flex items-center text-white overflow-hidden"
     >
-      
-
-      {/* Overlay */}
-      <ParticlesBg />
-  
-
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
-        {/* TEXTO */}
         <motion.div
           variants={container}
           initial="hidden"
@@ -76,72 +66,75 @@ export default function Hero() {
             variants={item}
             className="text-xl md:text-2xl text-gray-300"
           >
-            Desenvolvedor Web Full Stack <br/>| JavaScript • React • Node.js • MySQL | Tailwind | Linux |
+            Desenvolvedor Web Full Stack <br />
+            JavaScript • React • Node.js • MySQL • Tailwind • Linux
           </motion.h2>
 
           <motion.p
             variants={item}
             className="text-gray-400 max-w-xl"
           >
-            Atuo no desenvolvimento de sistemas e aplicações web institucionais, com experiência em front-end, back-end e banco de dados. Bolsista CNPq, participo da criação de soluções utilizadas em ambientes reais, com foco em qualidade, organização e desempenho.
+            Atuo no desenvolvimento de sistemas web institucionais e aplicações
+            responsivas, com experiência em front-end, back-end, banco de dados,
+            automações e painéis administrativos. Como bolsista CNPq, participo
+            da criação de soluções usadas em ambientes reais.
           </motion.p>
 
-          <motion.div
-            variants={item}
-            className="flex gap-4"
-          >
-            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-              <a href="/projects"><Button variant="primary" className="btn_pro">Ver Projetos</Button></a>
+          <motion.div variants={item} className="hero-actions">
+            <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.95 }}>
+              <a href="/projects">
+                <Button variant="primary" className="btn_pro">Ver projetos</Button>
+              </a>
             </motion.div>
 
-            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-              <a href="/contact"><Button variant="secondary" className="btn-con">Entrar em Contato</Button></a>
+            <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.95 }}>
+              <a href="/contact">
+                <Button variant="secondary" className="btn-con">Entrar em contato</Button>
+              </a>
             </motion.div>
           </motion.div>
         </motion.div>
 
-        {/* IMAGEM */}
-<motion.div
-  initial={{ opacity: 0, scale: 0.9 }}
-  animate={{
-    opacity: 1,
-    scale: 1,
-    y: [0, -14, 0],
-  }}
-  transition={{
-    opacity: { duration: 0.8 },
-    scale: { duration: 0.8 },
-    y: {
-      duration: 5,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
-  }}
-  whileHover={{
-    scale: 1.05,
-  }}
-  className="relative flex justify-center md:justify-end"
->
-  {/* Halo / Glow atrás */}
-  <div
-    className="absolute inset-0 rounded-full blur-3xl opacity-40"
-    style={{
-      background:
-        "radial-gradient(circle at center, #3b82f6 0%, transparent 70%)",
-    }}
-  />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            y: [0, -14, 0],
+          }}
+          transition={{
+            opacity: { duration: 0.8 },
+            scale: { duration: 0.8 },
+            y: {
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            },
+          }}
+          whileHover={{ scale: 1.04 }}
+          className="relative flex justify-center md:justify-end hero-visual"
+        >
+          <div
+            className="absolute inset-0 rounded-full blur-3xl opacity-40"
+            style={{
+              background:
+                "radial-gradient(circle at center, #3b82f6 0%, transparent 70%)",
+            }}
+          />
 
-  {/* Container glass */}
-  <div className="relative z-10 rounded-2xl p-2 bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl">
-    <img
-      src={banner}
-      alt="Banner JVDev"
-      className="max-w-xs md:max-w-md rounded-xl"
-    />
-  </div>
-</motion.div>
-
-
+          <div className="relative z-10 rounded-lg p-2 bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl">
+            <img
+              src={banner}
+              alt="Ilustração de João Vitor desenvolvendo sistemas"
+              className="max-w-xs md:max-w-md rounded-lg"
+              width="900"
+              height="600"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
+          </div>
+        </motion.div>
       </div>
     </section>
   );

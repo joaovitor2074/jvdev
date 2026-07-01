@@ -1,36 +1,30 @@
+import { lazy, Suspense, useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { Canvas } from "@react-three/fiber";
-import { useGLTF } from "@react-three/drei";
 import emailjs from "@emailjs/browser";
-import { useState, useRef } from "react";
 import ParticlesBg from "../components/ui/ParticlesBg";
 
-// CSS
 import "../styles/pages/contact.css";
 
-/* =====================
-   3D MODEL
-===================== */
-function ContactModel() {
-  const { scene } = useGLTF("/models/terminal.glb");
+const ContactCanvas = lazy(() => import("../components/sections/ContactCanvas"));
 
-  return (
-    <primitive
-      object={scene}
-      scale={0.2}
-      position={[-1, -3, 5]}
-      rotation={[0, Math.PI / 6, 0]}
-    />
-  );
+function useIsDesktop(breakpoint = 768) {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const onResize = () => setIsDesktop(window.innerWidth >= breakpoint);
+    onResize();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [breakpoint]);
+
+  return isDesktop;
 }
 
-/* =====================
-   PAGE
-===================== */
 export default function Contact() {
   const formRef = useRef(null);
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState(null); // success | error
+  const [status, setStatus] = useState(null);
+  const isDesktop = useIsDesktop();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -60,20 +54,18 @@ export default function Contact() {
     <div id="Contact" className="relative">
       <ParticlesBg />
 
-      <section className="relative min-h-screen px-6 py-24 max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-
-          {/* FORM */}
+      <section className="relative min-h-screen px-4 sm:px-6 py-16 sm:py-24 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -36 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.55 }}
           >
             <h1 className="text-white text-3xl md:text-4xl font-bold mb-6">
-              Vamos <span className="text-blue-600">conversar</span>
+              Vamos <span className="text-blue-500">conversar</span>
             </h1>
 
-            <p className="text-zinc-400 leading-relaxed mb-10 max-w-xl">
+            <p className="text-zinc-400 leading-relaxed mb-8 sm:mb-10 max-w-xl">
               Estou disponível para discutir projetos, ideias técnicas,
               arquitetura de sistemas e oportunidades profissionais.
             </p>
@@ -81,70 +73,68 @@ export default function Contact() {
             <form
               ref={formRef}
               onSubmit={handleSubmit}
-              className="rounded-2xl border border-zinc-800 bg-zinc-900/50 backdrop-blur p-6 space-y-5"
+              className="rounded-lg border border-zinc-800 bg-zinc-900/50 backdrop-blur p-5 sm:p-6 space-y-5"
             >
-              {/* Nome */}
               <div>
-                <label className="text-sm text-zinc-400">Nome</label>
+                <label className="text-sm text-zinc-400" htmlFor="name">Nome</label>
                 <input
+                  id="name"
                   type="text"
                   name="name"
                   required
                   placeholder="Seu nome"
-                  className="mt-2 w-full rounded-xl bg-zinc-950 border border-zinc-800 px-4 py-3 text-sm text-zinc-200 focus:outline-none focus:border-blue-600 transition"
+                  className="mt-2 w-full rounded-lg bg-zinc-950 border border-zinc-800 px-4 py-3 text-sm text-zinc-200 focus:outline-none focus:border-blue-600 transition"
                 />
               </div>
 
-              {/* Email */}
               <div>
-                <label className="text-sm text-zinc-400">Email</label>
+                <label className="text-sm text-zinc-400" htmlFor="email">Email</label>
                 <input
+                  id="email"
                   type="email"
                   name="email"
                   required
                   placeholder="seu@email.com"
-                  className="mt-2 w-full rounded-xl bg-zinc-950 border border-zinc-800 px-4 py-3 text-sm text-zinc-200 focus:outline-none focus:border-blue-600 transition"
+                  className="mt-2 w-full rounded-lg bg-zinc-950 border border-zinc-800 px-4 py-3 text-sm text-zinc-200 focus:outline-none focus:border-blue-600 transition"
                 />
               </div>
 
-              {/* Assunto */}
               <div>
-                <label className="text-sm text-zinc-400">Assunto</label>
+                <label className="text-sm text-zinc-400" htmlFor="subject">Assunto</label>
                 <select
+                  id="subject"
                   name="subject"
                   required
-                  className="mt-2 w-full rounded-xl bg-zinc-950 border border-zinc-800 px-4 py-3 text-sm text-zinc-200 focus:outline-none focus:border-blue-600 transition"
+                  className="mt-2 w-full rounded-lg bg-zinc-950 border border-zinc-800 px-4 py-3 text-sm text-zinc-200 focus:outline-none focus:border-blue-600 transition"
                 >
                   <option value="">Selecione um assunto</option>
                   <option>Projeto / Freelance</option>
                   <option>Pesquisa / Acadêmico</option>
-                  <option>Dúvida Técnica</option>
+                  <option>Dúvida técnica</option>
                   <option>Outro</option>
                 </select>
               </div>
 
-              {/* Mensagem */}
               <div>
-                <label className="text-sm text-zinc-400">Mensagem</label>
+                <label className="text-sm text-zinc-400" htmlFor="message">Mensagem</label>
                 <textarea
+                  id="message"
                   name="message"
                   rows={5}
                   required
                   placeholder="Descreva sua ideia ou proposta"
-                  className="mt-2 w-full rounded-xl bg-zinc-950 border border-zinc-800 px-4 py-3 text-sm text-zinc-200 resize-none focus:outline-none focus:border-blue-600 transition"
+                  className="mt-2 w-full rounded-lg bg-zinc-950 border border-zinc-800 px-4 py-3 text-sm text-zinc-200 resize-none focus:outline-none focus:border-blue-600 transition"
                 />
               </div>
 
-              {/* Botão */}
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full rounded-xl bg-blue-600 py-3 text-sm font-medium text-white hover:bg-blue-500 transition disabled:opacity-50"
+                className="w-full rounded-lg bg-blue-600 py-3 text-sm font-medium text-white hover:bg-blue-500 transition disabled:opacity-50"
               >
                 {loading ? "Enviando..." : "Enviar mensagem"}
               </button>
 
-              {/* Feedback */}
               {status === "success" && (
                 <p className="text-sm text-green-500">
                   Mensagem enviada com sucesso. Retornarei em breve.
@@ -159,20 +149,18 @@ export default function Contact() {
             </form>
           </motion.div>
 
-          {/* 3D – DESKTOP */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="hidden md:block w-full h-[420px] rounded-2xl border border-zinc-800 bg-zinc-900/30 backdrop-blur"
-          >
-            <Canvas camera={{ position: [5, 3, 0], fov: 65 }}>
-              <ambientLight intensity={0.6} />
-              <directionalLight position={[4, 4, 4]} intensity={1} />
-              <ContactModel />
-            </Canvas>
-          </motion.div>
-
+          {isDesktop && (
+            <motion.div
+              initial={{ opacity: 0, x: 36 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.55 }}
+              className="w-full h-[420px] rounded-lg border border-zinc-800 bg-zinc-900/30 backdrop-blur"
+            >
+              <Suspense fallback={<div className="contact-canvas-fallback" />}>
+                <ContactCanvas />
+              </Suspense>
+            </motion.div>
+          )}
         </div>
       </section>
     </div>

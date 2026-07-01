@@ -1,87 +1,85 @@
-import { motion } from "framer-motion"
+import { motion, useReducedMotion } from "framer-motion";
+import { TECHS } from "../../data/techs";
 
 const ProjectCard = ({
-    title,
-    description,
-    image,
-    technologies,
-    url
+  title,
+  category,
+  description,
+  image,
+  technologies = [],
+  url,
 }) => {
-    return (
-        <motion.div
-            className="project-card"
-            initial={{ opacity: 0, y: -190, scale: 0.95 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{
-                type: "spring",
-                stiffness: 20,
-                damping: 14
-            }}
-            whileHover={{ y: -6 }}
-        >
-            <div className="project-preview">
-                <img src={image} alt={title} />
+  const shouldReduceMotion = useReducedMotion();
 
-                <div className="project-overlay">
-                    <button
-                        onClick={() => window.open(url, "_blank")}
-                        className="project-btn bg-blue-500 overlay"
-                    >
-                        Ver projeto
-                    </button>
-                </div>
-            </div>
+  return (
+    <motion.article
+      className="project-card"
+      initial={shouldReduceMotion ? false : { opacity: 0, y: 40, scale: 0.98 }}
+      whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{ duration: 0.55, ease: "easeOut" }}
+      whileHover={shouldReduceMotion ? undefined : { y: -6 }}
+    >
+      <div className="project-preview">
+        <img
+          src={image}
+          alt={`Prévia do projeto ${title}`}
+          className="project-image"
+          loading="lazy"
+          decoding="async"
+          sizes="(min-width: 1024px) 45vw, 100vw"
+        />
 
-            <div className="project-content">
-                <h3 className="text-gray-50">{title}</h3>
-                <p className="text-gray-300">{description}</p>
+        <div className="project-overlay">
+          {url ? (
+            <a
+              href={url}
+              target="_blank"
+              rel="noreferrer"
+              className="project-btn"
+            >
+              Ver projeto
+            </a>
+          ) : (
+            <span className="project-btn project-btn-disabled">
+              Em desenvolvimento
+            </span>
+          )}
+        </div>
+      </div>
 
-                <div className="project-techs">
-                    {technologies.map((tech, i) => {
-                        // valores aleatórios por ícone
-                        const randomDelay = Math.random() * 2
-                        const randomDuration = 2 + Math.random() * 2
+      <div className="project-content">
+        {category && <span className="project-category">{category}</span>}
+        <h3>{title}</h3>
+        <p>{description}</p>
 
-                        return (
-                            <motion.img
-                                key={i}
-                                src={tech}
-                                alt="Tecnologia"
-                                className="tech-badge"
+        <div className="project-techs" aria-label="Tecnologias utilizadas">
+          {technologies.map((techId, index) => {
+            const tech = TECHS[techId];
+            if (!tech) return null;
+            const Icon = tech.icon;
 
-                                // entrada quando aparece na tela
-                                initial={{ opacity: 0, y: 0 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
+            return (
+              <motion.span
+                key={`${tech.id}-${index}`}
+                title={tech.name}
+                className="tech-badge"
+                style={{ color: tech.color }}
+                initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
+                whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.04 }}
+                whileHover={shouldReduceMotion ? undefined : { scale: 1.18 }}
+              >
+                <Icon aria-hidden="true" />
+                <span className="sr-only">{tech.name}</span>
+              </motion.span>
+            );
+          })}
+        </div>
+      </div>
+    </motion.article>
+  );
+};
 
-                                // animação contínua própria
-                                animate={{
-                                    scale: [1, 1.15, 1],
-                                    y: [0, -4, 0]
-                                }}
-                                transition={{
-                                    delay: randomDelay,
-                                    duration: randomDuration,
-                                    repeat: Infinity,
-                                    repeatType: "mirror",
-                                    ease: "easeInOut"
-                                }}
-
-                                // hover
-                                whileHover={{
-                                    scale: 1.3,
-                                    filter: "drop-shadow(0 0 12px rgba(59,130,246,0.9))"
-                                }}
-                            />
-                        )
-                    })}
-                </div>
-
-
-            </div>
-        </motion.div>
-    )
-}
-
-export default ProjectCard
+export default ProjectCard;

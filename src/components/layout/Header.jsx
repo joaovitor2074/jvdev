@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
-import Button from "../ui/Button";
+import { FaBars, FaTimes } from "react-icons/fa";
 import "../../styles/layouts/header.css";
 import logotrans from "../../assets/images/jvdev-fundotransparente.png";
 
@@ -9,10 +9,10 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   const menuItems = [
-    { label: "Home", path: "/" },
-    { label: "About Me", path: "/about" },
-    { label: "Projects", path: "/projects" },
-    { label: "Contact", path: "/contact" },
+    { label: "Início", path: "/" },
+    { label: "Sobre mim", path: "/about" },
+    { label: "Projetos", path: "/projects" },
+    { label: "Contato", path: "/contact" },
   ];
 
   return (
@@ -20,21 +20,19 @@ export default function Header() {
       className="header"
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 0.65, ease: "easeOut" }}
     >
       <div className="header-container">
-        {/* LOGO */}
         <motion.div
-          whileHover={{ scale: 1.1, rotate: -2 }}
+          whileHover={{ scale: 1.06, rotate: -2 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          <NavLink to="/">
+          <NavLink to="/" aria-label="Ir para o início" onClick={() => setOpen(false)}>
             <img src={logotrans} alt="Logo JVDev" className="logo" />
           </NavLink>
         </motion.div>
 
-        {/* NAV DESKTOP */}
-        <nav className="nav">
+        <nav className="nav" aria-label="Navegação principal">
           <ul className="nav-list">
             {menuItems.map(({ label, path }) => (
               <li key={path}>
@@ -43,7 +41,7 @@ export default function Header() {
                   className={({ isActive }) =>
                     isActive ? "link active" : "link"
                   }
-                  end={path === "/"} 
+                  end={path === "/"}
                 >
                   {label}
                 </NavLink>
@@ -52,24 +50,18 @@ export default function Header() {
           </ul>
         </nav>
 
-        {/* BUTTON DESKTOP */}
-        {/* <div className="div_btn">
-          <Button className="btn">Divirta-se</Button>
-        </div> */}
-
-        {/* HAMBURGER */}
         <button
           className="menu-btn"
-          onClick={() => setOpen(!open)}
-          aria-label="Abrir menu"
+          onClick={() => setOpen((value) => !value)}
+          aria-label={open ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={open}
         >
-          ☰
+          {open ? <FaTimes aria-hidden="true" /> : <FaBars aria-hidden="true" />}
         </button>
       </div>
 
-      {/* MENU MOBILE */}
       {open && (
-        <div className="mobile-menu">
+        <nav className="mobile-menu" aria-label="Navegação mobile">
           {menuItems.map(({ label, path }) => (
             <NavLink
               key={path}
@@ -83,7 +75,7 @@ export default function Header() {
               {label}
             </NavLink>
           ))}
-        </div>
+        </nav>
       )}
     </motion.header>
   );
