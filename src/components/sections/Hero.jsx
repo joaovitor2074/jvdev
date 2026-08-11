@@ -67,17 +67,18 @@ export default function Hero() {
             className="text-xl md:text-2xl text-gray-300"
           >
             Desenvolvedor Web Full Stack <br />
-            JavaScript • React • Node.js • MySQL • Tailwind • Linux
+            TypeScript • React • Node.js • PostgreSQL • MySQL • Vite
           </motion.h2>
 
           <motion.p
             variants={item}
             className="text-gray-400 max-w-xl"
           >
-            Atuo no desenvolvimento de sistemas web institucionais e aplicações
-            responsivas, com experiência em front-end, back-end, banco de dados,
-            automações e painéis administrativos. Como bolsista CNPq, participo
-            da criação de soluções usadas em ambientes reais.
+            Atuo no desenvolvimento de sistemas web institucionais, SaaS,
+            cardápios digitais e aplicações responsivas, com experiência em
+            front-end, back-end, banco de dados, automações e painéis
+            administrativos. Meus projetos recentes incluem Servix, GIEPI,
+            Código TCC e soluções comerciais para atendimento via WhatsApp.
           </motion.p>
 
           <motion.div variants={item} className="hero-actions">

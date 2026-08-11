@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
-import ParticlesBg from "../components/ui/ParticlesBg";
+import DeferredParticlesBg from "../components/ui/DeferredParticlesBg";
 
 import "../styles/pages/contact.css";
 
@@ -52,7 +52,7 @@ export default function Contact() {
 
   return (
     <div id="Contact" className="relative">
-      <ParticlesBg />
+      <DeferredParticlesBg />
 
       <section className="relative min-h-screen px-4 sm:px-6 py-16 sm:py-24 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">

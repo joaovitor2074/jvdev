@@ -6,7 +6,8 @@ import {
   FaReact,
   FaGit,
   FaGithub,
-  FaWordpress
+  FaWordpress,
+  FaPhp
 } from "react-icons/fa";
 import {
   SiTypescript,
@@ -15,6 +16,9 @@ import {
   SiVercel,
   SiNestjs,
   SiMysql,
+  SiPostgresql,
+  SiPrisma,
+  SiVite,
 } from "react-icons/si";
 
 export const TECHS = {
@@ -96,10 +100,34 @@ export const TECHS = {
     icon:FaWordpress,
     color:"#3178C6",
   },
+  php: {
+    id: "php",
+    name:"PHP",
+    icon:FaPhp,
+    color:"#777BB4",
+  },
   mysql:{
     id:"mysql",
     name:"MySQL",
     icon:SiMysql,
     color: "#F7931E"
+  },
+  postgres:{
+    id:"postgres",
+    name:"PostgreSQL",
+    icon:SiPostgresql,
+    color: "#4169E1"
+  },
+  prisma:{
+    id:"prisma",
+    name:"Prisma",
+    icon:SiPrisma,
+    color: "#DDE7F0"
+  },
+  vite:{
+    id:"vite",
+    name:"Vite",
+    icon:SiVite,
+    color: "#A855F7"
   }
 };

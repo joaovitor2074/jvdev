@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from "react";
-import ParticlesBg from "../components/ui/ParticlesBg";
+import DeferredParticlesBg from "../components/ui/DeferredParticlesBg";
 import { motion } from "framer-motion";
 import {
   FaHtml5,
@@ -15,8 +15,18 @@ import {
   FaGithub,
   FaLinux,
   FaNetworkWired,
+  FaPhp,
 } from "react-icons/fa";
-import { SiTailwindcss, SiTypescript, SiExpress, SiVercel, SiNestjs } from "react-icons/si";
+import {
+  SiTailwindcss,
+  SiTypescript,
+  SiExpress,
+  SiVercel,
+  SiNestjs,
+  SiPostgresql,
+  SiPrisma,
+  SiVite,
+} from "react-icons/si";
 
 import Button from "../components/ui/Button";
 import "../styles/pages/aboutme.css";
@@ -54,6 +64,10 @@ const tecnologias = [
   { icon: <SiVercel size={50} />, color: "#E5E7EB" },
   { icon: <SiExpress size={50} />, color: "#9CA3AF" },
   { icon: <SiNestjs size={50} />, color: "#E0234E" },
+  { icon: <SiPostgresql size={50} />, color: "#4169E1" },
+  { icon: <SiPrisma size={50} />, color: "#DDE7F0" },
+  { icon: <SiVite size={50} />, color: "#A855F7" },
+  { icon: <FaPhp size={50} />, color: "#777BB4" },
   { icon: <FaLock size={50} />, color: "#22C55E" },
 ];
 
@@ -82,7 +96,7 @@ export default function SobreMim() {
   return (
     <main>
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <ParticlesBg />
+        <DeferredParticlesBg />
       </div>
 
       <main id="aboutme" className="min-h-screen text-zinc-100 px-4 sm:px-6 md:px-12 py-16 sm:py-20">
@@ -105,14 +119,16 @@ export default function SobreMim() {
               <motion.p variants={item} className="text-lg text-zinc-300 leading-relaxed max-w-2xl">
                 Olá, eu sou João Vitor. Sou desenvolvedor web full stack e
                 bolsista CNPq, atuando no desenvolvimento de sistemas e
-                aplicações web voltadas para uso real.
+                aplicações web voltadas para uso real, desde soluções
+                institucionais até sistemas comerciais e SaaS.
               </motion.p>
               <motion.p variants={item} className="text-lg text-zinc-300 leading-relaxed max-w-2xl">
                 Tenho trabalhado com arquitetura de aplicações, organização de
-                dados, integrações, scraping, painéis administrativos e
-                interfaces responsivas. Gosto de entender o problema antes de
-                escrever código, pensando no sistema como um produto que precisa
-                ser útil, sustentável e claro para quem usa.
+                dados, integrações, scraping, painéis administrativos,
+                cardápios digitais, checkout via WhatsApp e interfaces
+                responsivas. Gosto de entender o problema antes de escrever
+                código, pensando no sistema como um produto útil, sustentável e
+                claro para quem usa.
               </motion.p>
             </div>
 
@@ -125,7 +141,7 @@ export default function SobreMim() {
                 <div className="aboutme-mobile-panel">
                   <span>Full Stack</span>
                   <strong>Sistemas reais, dados e automações</strong>
-                  <small>GIEPI • Código TCC • Painéis administrativos</small>
+                  <small>Servix • GIEPI • Código TCC • Cardápios digitais</small>
                 </div>
               )}
             </div>
@@ -167,21 +183,23 @@ export default function SobreMim() {
             Projetos reais e experiência prática
           </motion.h2>
           <motion.p variants={item} className="text-lg text-zinc-300 leading-relaxed max-w-3xl">
-            Atualmente desenvolvo soluções para o GIEPI, incluindo um sistema
-            acadêmico com integração de dados da Plataforma Lattes e um sistema
-            administrativo para acompanhar membros, linhas de pesquisa,
-            comunicados, pendências e atualizações automatizadas.
+            Atualmente evoluo projetos como o Servix, uma plataforma full stack
+            para assistências e serviços com clientes, orçamentos, ordens,
+            estoque, financeiro, prospecção e comunicação por WhatsApp. Também
+            desenvolvo soluções para o GIEPI, incluindo sistema acadêmico com
+            integração de dados da Plataforma Lattes e painel administrativo.
           </motion.p>
           <motion.p variants={item} className="text-lg text-zinc-300 leading-relaxed max-w-3xl">
-            Também criei o Código TCC, uma aplicação em formato de chat voltada
-            para estudantes que precisam organizar tema, contexto, prazo e etapa
-            do trabalho acadêmico.
+            Também criei o Código TCC e cardápios digitais para negócios locais,
+            como pizzaria, churrascaria e restaurante, com experiências
+            responsivas, carrinho, personalização de pedido e fluxo de envio
+            pelo WhatsApp.
           </motion.p>
           <motion.ul variants={item} className="mt-6 space-y-2 text-zinc-300 list-disc list-inside">
             <li>APIs, integrações e automações</li>
             <li>Bancos de dados relacionais</li>
             <li>Scraping aplicado a fluxos reais</li>
-            <li>Interfaces responsivas e painéis administrativos</li>
+            <li>Interfaces responsivas, cardápios digitais e painéis administrativos</li>
             <li>Arquitetura, organização e manutenção de código</li>
           </motion.ul>
         </motion.section>

@@ -9,9 +9,11 @@ const ProjectCard = ({
   gallery = [],
   technologies = [],
   url,
+  repo,
 }) => {
   const shouldReduceMotion = useReducedMotion();
   const galleryPreview = gallery.slice(0, 3);
+  const hasActions = Boolean(url || repo);
 
   return (
     <motion.article
@@ -32,10 +34,19 @@ const ProjectCard = ({
         />
 
         <div className="project-page-overlay">
-          {url ? (
-            <a href={url} target="_blank" rel="noreferrer" className="project-page-action">
-              Ver projeto
-            </a>
+          {hasActions ? (
+            <div className="project-page-actions">
+              {url && (
+                <a href={url} target="_blank" rel="noreferrer" className="project-page-action">
+                  Ver site
+                </a>
+              )}
+              {repo && (
+                <a href={repo} target="_blank" rel="noreferrer" className="project-page-action is-secondary">
+                  Código
+                </a>
+              )}
+            </div>
           ) : (
             <span className="project-page-action is-disabled">
               Em desenvolvimento

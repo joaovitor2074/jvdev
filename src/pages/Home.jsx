@@ -4,7 +4,7 @@ import About from "../components/sections/About";
 import Projects from "../components/sections/Projects";
 import Contact from "../components/sections/Contact";
 import Skills from "../components/sections/Skills";
-import ParticlesBg from "../components/ui/ParticlesBg";
+import DeferredParticlesBg from "../components/ui/DeferredParticlesBg";
 import styles from "../styles/pages/home.module.css";
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
       <div className={styles.homeBg} />
 
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <ParticlesBg />
+        <DeferredParticlesBg />
       </div>
 
       <div className="relative z-[2]">

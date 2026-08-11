@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import ParticlesBg from "../components/ui/ParticlesBg";
+import DeferredParticlesBg from "../components/ui/DeferredParticlesBg";
 import Button from "../components/ui/Button";
 import ProjectCard from "../components/projects/projectCardpage";
 import { projetos } from "../data/projects";
@@ -27,7 +27,7 @@ export default function Projects() {
   return (
     <main id="project" className="relative min-h-screen text-zinc-100 px-4 sm:px-6 md:px-12 py-16 sm:py-20">
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <ParticlesBg />
+        <DeferredParticlesBg />
       </div>
 
       <motion.section
@@ -37,7 +37,7 @@ export default function Projects() {
         animate="visible"
       >
         <motion.span variants={item} className="section-kicker">
-          Sistemas e experiências recentes
+          GitHub, Vercel e projetos recentes
         </motion.span>
 
         <motion.h1
@@ -51,9 +51,10 @@ export default function Projects() {
           variants={item}
           className="text-base sm:text-lg text-zinc-300 max-w-3xl leading-relaxed"
         >
-          Aqui estão sistemas e aplicações que desenvolvi para contextos reais,
-          incluindo gestão acadêmica, painéis administrativos, automações,
-          aplicações web responsivas e projetos de estudo.
+          Aqui estão sistemas e aplicações que desenvolvi para contextos reais
+          e demonstráveis, incluindo SaaS, gestão acadêmica, painéis
+          administrativos, cardápios digitais, automações, aplicações web
+          responsivas e projetos de estudo.
         </motion.p>
       </motion.section>
 
@@ -74,6 +75,7 @@ export default function Projects() {
             gallery={projeto.gallery}
             technologies={projeto.techs}
             url={projeto.link}
+            repo={projeto.repo}
           />
         ))}
       </motion.section>
@@ -92,9 +94,10 @@ export default function Projects() {
         <p className="text-zinc-300 leading-relaxed max-w-3xl">
           Cada entrega parte do entendimento do problema, passa pela modelagem
           dos dados e segue para a implementação com atenção a arquitetura,
-          responsividade, performance e manutenção. Nos projetos institucionais,
-          também trabalho com integração de dados, automações e rotinas de
-          acompanhamento administrativo.
+          responsividade, performance e manutenção. Nos projetos recentes,
+          trabalhei com SaaS operacional, painéis administrativos, cardápios
+          digitais, carrinho, checkout, pedidos via WhatsApp, integração de
+          dados e rotinas de acompanhamento administrativo.
         </p>
       </motion.section>
 

@@ -95,22 +95,22 @@ export default function AboutSection() {
             <p className="text-gray-300 leading-relaxed">
               Sou João Vitor, desenvolvedor Full Stack e bolsista CNPq. Trabalho
               no desenvolvimento de aplicações web para uso real, com foco em
-              sistemas institucionais, automações, painéis administrativos e
-              organização de dados.
+              sistemas institucionais, SaaS, automações, painéis administrativos
+              e organização de dados.
             </p>
 
             <p className="text-gray-400 leading-relaxed">
-              Nos projetos mais recentes, atuei no ecossistema do GIEPI,
-              incluindo sistema acadêmico, integração com dados da Plataforma
-              Lattes e um painel administrativo para acompanhamento de membros,
-              linhas de pesquisa, comunicados e atualizações por scraping.
+              Nos projetos mais recentes, evoluí o Servix, uma plataforma para
+              assistências e serviços com clientes, orçamentos, ordens,
+              estoque, financeiro e comunicação por WhatsApp. Também atuei no
+              ecossistema do GIEPI, com integração de dados, scraping e gestão
+              acadêmica.
             </p>
 
             <p className="text-gray-400 leading-relaxed">
-              Também desenvolvi o Código TCC, uma experiência em formato de chat
-              para apoiar estudantes na organização de trabalhos acadêmicos,
-              reforçando minha prática com interfaces responsivas, fluxo de
-              conversa e produtos pensados para o usuário final.
+              Também desenvolvi o Código TCC e cardápios digitais para negócios
+              locais, reforçando minha prática com interfaces responsivas,
+              fluxos de pedido e produtos pensados para usuários finais.
             </p>
 
             <motion.div whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.95 }}>
@@ -135,8 +135,8 @@ export default function AboutSection() {
             {isMobile ? (
               <div className="about-mobile-panel">
                 <span>GIEPI</span>
-                <strong>Dados, sistemas e automações</strong>
-                <small>Código TCC • Painéis administrativos • Aplicações web</small>
+                <strong>SaaS, dados e automações</strong>
+                <small>Servix • GIEPI • Código TCC • Cardápios digitais</small>
               </div>
             ) : (
               <motion.div

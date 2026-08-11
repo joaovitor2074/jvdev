@@ -14,11 +14,11 @@ const Projects = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <span className="section-kicker">Portfólio recente</span>
+        <span className="section-kicker">GitHub e Vercel recentes</span>
         <h2>Projetos em destaque</h2>
         <p>
-          Sistemas reais com foco em front-end, back-end, automação, gestão de
-          dados e experiências web responsivas.
+          Sistemas reais e produtos demonstráveis com foco em SaaS, front-end,
+          back-end, automação, dados e experiências web responsivas.
         </p>
       </motion.div>
 
@@ -32,6 +32,7 @@ const Projects = () => {
             image={projeto.image}
             technologies={projeto.techs}
             url={projeto.link}
+            repo={projeto.repo}
           />
         ))}
       </div>
